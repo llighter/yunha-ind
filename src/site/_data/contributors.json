@@ -1,0 +1,18 @@
+{
+    "llighter": {
+        "name": {
+            "given": "Yunha",
+            "family": "Park"
+        },
+        "org": {
+            "name": "LDCC",
+            "unit": "Developer Relations"
+        },
+        "country": "KO",
+        "homepage": "https://llighter.github.io",
+        "twitter": "llighter",
+        "description": {
+            "en": "I'm the owner of this crazy decent website."
+        }
+    }
+}
