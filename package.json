@@ -1,0 +1,22 @@
+{
+  "name": "yunha-ind",
+  "version": "1.0.0",
+  "description": "This is my website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/llighter/yunha-ind.git"
+  },
+  "keywords": [
+    "11ty"
+  ],
+  "author": "llighter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/llighter/yunha-ind/issues"
+  },
+  "homepage": "https://github.com/llighter/yunha-ind#readme"
+}
