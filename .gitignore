@@ -1,0 +1,6 @@
+_site/
+node_modules/
+package-lock.json
+
+# webpack 결과물 제외
+dist
