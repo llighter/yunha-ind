@@ -3,6 +3,7 @@ import { MDCTopAppBar } from '@material/top-app-bar';
 import { MDCTabBar } from '@material/tab-bar';
 import { MDCList } from "@material/list";
 import { MDCDrawer } from "@material/drawer";
+import { MDCTab } from '@material/tab/component';
 
 // // Instantiation
 
@@ -13,8 +14,11 @@ import { MDCDrawer } from "@material/drawer";
 const topAppBarElement = document.querySelector('.mdc-top-app-bar');
 const topAppBar = new MDCTopAppBar(topAppBarElement);
 
-// // tap bar
+// tap bar
 const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
+
+// tab
+const tab = new MDCTab(document.querySelector('.mdc-tab'));
 
 // card
 const selector = '.mdc-button, .mdc-icon-button, .mdc-card__primary-action';
