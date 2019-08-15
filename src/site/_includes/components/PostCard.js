@@ -22,12 +22,12 @@ module.exports = ({post}) => {
   }
 
   return html`
-      <div class="mdc-layout-grid__cell">
+      <a href='${ post.url }' class="mdc-layout-grid__cell w-card">
         <div class="mdc-card mdc-card--outlined yunha-inc-card">
           <div class="yunha-inc-image mdc-card__media mdc-card__media--square"
-            style="background-image: url('${url + hero}')"></div>
-          <div class="yunha-inc-card__text-label">{{ post.data.title }}</div>
-          <div class="yunha-inc-card__secondary mdc-typography--body2">{{ post.data.subhead }}</div>
+            style="background-image: url('${post.url + hero}')"></div>
+          <div class="yunha-inc-card__text-label">${ data.title }</div>
+          <div class="yunha-inc-card__secondary mdc-typography--body2">${ data.subhead }</div>
           <div class="mdc-card__actions">
             <div class="mdc-card__action-buttons">
               <button class="mdc-button mdc-card__action mdc-card__action--button adopt-form__button">
@@ -36,7 +36,7 @@ module.exports = ({post}) => {
             </div>
           </div>
         </div>
-      </div>
+      </a>
   `;
 }
 
