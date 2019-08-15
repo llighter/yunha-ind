@@ -1,8 +1,22 @@
 ---
 layout: layout
 title: About
+tags:
+  - nav
+navtitle: About
 description: |
   YUNHA Industry is personal website for developing, designing, learning something special.
 ---
 
-Hi THIS is ABOUT PAGE
+<div class="yunha-inc--fixed-adjust">
+  <div class="y-layout-container mdc-layout-grid">
+    <div class="mdc-layout-grid__inner yunha-inc-title">
+      <div class="mdc-layout-grid__cell--span-2"></div>
+      <div class="mdc-layout-grid__cell--span-8">
+        <h1 class="mdc-typography--headline1">{{ title }}</h1>
+        <h2 class="mdc-typography--subtitle1">{{ description }}</h2>
+      </div>
+      <div class="mdc-layout-grid__cell--span-2"></div>
+    </div>
+  </div>
+</div>

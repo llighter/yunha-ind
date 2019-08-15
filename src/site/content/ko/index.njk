@@ -5,11 +5,24 @@ description: |
   Welcome to YUNHA Industry. It is an honer to greet to you guys. Happy Hacking.
 ---
 
-<h1>{{ title }}</h1>
-<h2>{{ description }}</h2>
+<div class="yunha-inc--fixed-adjust">
+  <div class="y-layout-container mdc-layout-grid">
+    <div class="mdc-layout-grid__inner yunha-inc-title">
+      <div class="mdc-layout-grid__cell--span-2"></div>
+      <div class="mdc-layout-grid__cell--span-8">
+        <h1 class="mdc-typography--headline1">{{ title }}</h1>
+        <h2 class="mdc-typography--subtitle1">{{ description }}</h2>
+      </div>
+      <div class="mdc-layout-grid__cell--span-2"></div>
+    </div>
+  </div>
 
-{# <ul>
-{%- for post in collections.post -%}
-  <li>{{ post.data.title }}</li>
-{%- endfor -%}
-</ul> #}
+  <div class="y-layout-container mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
+      {%- for post in collections.post -%}
+        {% PostCard {post: post} %}
+      {%- endfor -%}
+
+    </div>
+  </div>
+</div>
