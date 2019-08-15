@@ -1,4 +1,5 @@
-# YUNHA INDUSTY
+# YUNHA INDUSTY 
+[![Build Status](https://travis-ci.com/llighter/yunha-ind.svg?branch=master)](https://travis-ci.com/llighter/yunha-ind)
 
 A starter repository showing how to build a blog with the [Eleventy](https://github.com/11ty/eleventy) static site generator.
 
