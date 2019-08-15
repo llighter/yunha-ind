@@ -20,7 +20,7 @@ module.exports = ({post}) => {
       </figure>
     `;
   }
-
+  // TODO: Need to differentiate between with image and without image
   return html`
       <a href='${ post.url }' class="mdc-layout-grid__cell w-card">
         <div class="mdc-card mdc-card--outlined yunha-inc-card">
