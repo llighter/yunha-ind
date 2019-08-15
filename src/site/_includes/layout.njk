@@ -34,7 +34,9 @@
     <div class="mdc-top-app-bar__row">
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
         <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
-        <span class="mdc-top-app-bar__title">YUNHA Engineering</span>
+        <span class="mdc-top-app-bar__title">
+          <a href="/ko"><img src="/src/images/logo.png" alt="YUNHA Industry" height="42"></a>
+        </span>
       </section>
 
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
@@ -42,33 +44,24 @@
           <div class="mdc-tab-scroller mdc-tab-scroller--align-end">
             <div class="mdc-tab-scroller__scroll-area">
               <div class="mdc-tab-scroller__scroll-content">
-
-                <a href="/ko/blog">
+                {%- for nav in collections.nav | reverse -%}
+                <a href="{{nav.url}}">
                   <button class="mdc-tab mdc-tab--active yunha-inc-tab mdc-tab--min-width" role="tab" aria-selected="true"
                     tabindex="0">
                     <span class="mdc-tab__content">
-                      <span class="mdc-tab__text-label">Blog</span>
+                      <span class="mdc-tab__text-label">{{ nav.data.navtitle }}</span>
                     </span>
-                    <span class="mdc-tab-indicator mdc-tab-indicator--active yunha-inc-tab-indicator">
+                    <span class="mdc-tab-indicator {% if nav.url == page.url %}mdc-tab-indicator--active{% endif %} yunha-inc-tab-indicator">
                       <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
                     </span>
                     <span class="mdc-tab__ripple"></span>
                   </button>
                 </a>
+                {%- endfor -%}
                 
                 <button class="mdc-tab yunha-inc-tab mdc-tab--min-width" role="tab" aria-selected="false" tabindex="-1">
                   <span class="mdc-tab__content">
                     <span class="mdc-tab__text-label">Resume</span>
-                  </span>
-                  <span class="mdc-tab-indicator yunha-inc-tab-indicator">
-                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                  </span>
-                  <span class="mdc-tab__ripple"></span>
-                </button>
-
-                <button class="mdc-tab yunha-inc-tab mdc-tab--min-width" role="tab" aria-selected="false" tabindex="-1">
-                  <span class="mdc-tab__content">
-                    <span class="mdc-tab__text-label">About</span>
                   </span>
                   <span class="mdc-tab-indicator yunha-inc-tab-indicator">
                     <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
