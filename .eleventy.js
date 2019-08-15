@@ -9,6 +9,7 @@ const PostCard = require(`./${componentsDir}/PostCard`);
 
 
 module.exports = function(eleventyConfig) {
+
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.setDataDeepMerge(true);
@@ -35,10 +36,13 @@ module.exports = function(eleventyConfig) {
 
   // eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
 
-  eleventyConfig.addPassthroughCopy("img");
-  eleventyConfig.addPassthroughCopy("css");
+  // eleventyConfig.addPassthroughCopy("img");
+  // eleventyConfig.addPassthroughCopy("css");
   // webpack으로 배출한 결과 파일 경로 추가
-  eleventyConfig.addPassthroughCopy("dist");
+  // eleventyConfig.addPassthroughCopy("dist");
+
+  // Copy the src/images directort
+  eleventyConfig.addPassthroughCopy("src/images");
 
   // image 경로 추가?
   // eleventyConfig.addPassthroughCopy("posts/201906")
@@ -78,7 +82,7 @@ module.exports = function(eleventyConfig) {
   //----------------------------------------------------------------------------
   // SHORTCODES
   //----------------------------------------------------------------------------
-  config.addShortcode('PostCard', PostCard);
+  eleventyConfig.addShortcode('PostCard', PostCard);
 
   return {
     templateFormats: [
@@ -106,6 +110,6 @@ module.exports = function(eleventyConfig) {
     // Because eleventy's passthroughFileCopy does not work with permalinks
     // we need to manually copy assets ourselves using gulp.
     // https://github.com/11ty/eleventy/issues/379
-    passthroughFileCopy: false,
+    passthroughFileCopy: true,
   };
 };
