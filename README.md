@@ -7,7 +7,7 @@ A starter repository showing how to build a blog with the [Eleventy](https://git
 ### 1. Clone this repository:
 
 ```
-git clone https://github.com/llighter/yunha-ind.git my-blog-name
+git clone https://github.com/llighter/llighter.github.io.git my-blog-name
 ```
 
 
