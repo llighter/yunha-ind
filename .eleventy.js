@@ -103,7 +103,7 @@ module.exports = function(eleventyConfig) {
 
     dir: {
       input: 'src/site/content',
-      output: 'dist',
+      output: 'docs',
       data: '../_data',
       includes: '../_includes',
     },
