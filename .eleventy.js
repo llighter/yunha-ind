@@ -5,8 +5,9 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 
 const componentsDir = 'src/site/_includes/components';
+const Hero = require(`./${componentsDir}/Hero`);
 const PostCard = require(`./${componentsDir}/PostCard`);
-
+const Breadcrumbs = require(`./${componentsDir}/Breadcrumbs`);
 
 module.exports = function(eleventyConfig) {
 
@@ -82,8 +83,10 @@ module.exports = function(eleventyConfig) {
   //----------------------------------------------------------------------------
   // SHORTCODES
   //----------------------------------------------------------------------------
+  eleventyConfig.addShortcode('Hero', Hero);  
   eleventyConfig.addShortcode('PostCard', PostCard);
-
+  eleventyConfig.addShortcode('Breadcrumbs', Breadcrumbs);
+  
   return {
     templateFormats: [
       "md",
