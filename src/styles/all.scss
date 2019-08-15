@@ -122,9 +122,6 @@ body {
     
 }
 
-// 기사 페이지나 블로그 글을 그릴 때에는 단일 컬럼 레이아웃으로 좁게 그린다.
-.w-layout-container--narrow { max-width: 800px; }
-
 $card-text-label-baseline: 16px;
 
 .yunha-inc-card .mdc-card__actions {
