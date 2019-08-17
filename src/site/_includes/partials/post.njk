@@ -12,5 +12,21 @@
     {% Breadcrumbs path %}
   </div>
 
-  {{ content | safe }}
+  <main class="w-layout-container--narrow w-post-content">
+    <header class="w-article-header">
+      <h1 class="w-article-header__headline">{{ title }}</h1>
+      {% if subhead %}
+        <p class="w-article-header__subhead w-mb--non">
+          {{ subhead }}
+        </p>
+      {% endif %}
+
+      {# {% if date %}
+        <div class="w-author__published">
+
+        <div>
+      {% endif %} #}
+    </header>
+    {{ content | safe }}
+  </main>
 <div>
