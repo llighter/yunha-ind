@@ -53,7 +53,8 @@ gulp.task('copy-content-assets', () => {
     .pipe(
       rename(function(assetPath) {
         const parts = assetPath.dirname.split('/');
-        // Let the en/images directory pass through.
+        console.log(parts[0]);
+        // Let the images directory pass through.
         if (parts[0] === 'images') {
           return;
         }

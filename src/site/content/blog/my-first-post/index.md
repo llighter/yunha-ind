@@ -3,6 +3,7 @@ title: "My First blog post"
 subhead: |
   My first blog post using 11ty and Material Design Component.
 date: 2019-08-01
+updated: 2019-08-17
 authors:
   - llighter
 hero: hero.jpeg

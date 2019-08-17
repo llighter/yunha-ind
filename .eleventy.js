@@ -8,6 +8,11 @@ const componentsDir = 'src/site/_includes/components';
 const Hero = require(`./${componentsDir}/Hero`);
 const PostCard = require(`./${componentsDir}/PostCard`);
 const Breadcrumbs = require(`./${componentsDir}/Breadcrumbs`);
+const Author = require(`./${componentsDir}/Author`);
+const AuthorInfo = require(`./${componentsDir}/AuthorInfo`);
+
+const filtersDir = 'src/site/_filters';
+const prettyDate = require(`./${filtersDir}/pretty-date`);
 
 module.exports = function(eleventyConfig) {
 
@@ -81,9 +86,16 @@ module.exports = function(eleventyConfig) {
   // });
 
   //----------------------------------------------------------------------------
+  // FILTERS
+  //----------------------------------------------------------------------------
+  eleventyConfig.addFilter('prettyDate', prettyDate);
+
+  //----------------------------------------------------------------------------
   // SHORTCODES
   //----------------------------------------------------------------------------
-  eleventyConfig.addShortcode('Hero', Hero);  
+  eleventyConfig.addShortcode('Hero', Hero);
+  eleventyConfig.addShortcode('Author', Author);
+  eleventyConfig.addShortcode('AuthorInfo', AuthorInfo);
   eleventyConfig.addShortcode('PostCard', PostCard);
   eleventyConfig.addShortcode('Breadcrumbs', Breadcrumbs);
   
