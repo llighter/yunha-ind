@@ -58,6 +58,8 @@ pre[class*='language-'] {
 
 pre code,
 pre[class*='language-'] code {
+  // TODO: 이걸 안 넣으면 web.dev 처럼 안나와서 넣었느데 이 위치가 맞는지 확인
+  font: 400 100%/1 $CODE_FONT;
   font-size: 1em;
   line-height: 1.5em;
   margin: 0;

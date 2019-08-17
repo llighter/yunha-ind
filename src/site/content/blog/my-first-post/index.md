@@ -16,6 +16,14 @@ tags:
 
 # This is HEADLINE
 
+## this is phasse
+
+A great deal of talent is lost in the world for want of a little courage.
+
+## 이건 한글이지
+
+동해물과 백두산이 마르고 닳도록
+
 Hi my name is Park, Yunha.
 I'm the owner of this website.
 Welcome to all of you guys.
@@ -23,6 +31,7 @@ Feel free to seeing around.
 
 
 ``` js
+// this is the comment
 const observer = new PerformanceObserver((list) => {
   for (const entry of list.getEntries()) {
     console.log(entry);

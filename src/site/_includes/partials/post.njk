@@ -16,7 +16,7 @@
     <header class="w-article-header">
       <h1 class="w-article-header__headline">{{ title }}</h1>
       {% if subhead %}
-        <p class="w-article-header__subhead">
+        <p class="w-article-header__subhead w-mb--non">
           {{ subhead }}
         </p>
       {% endif %}
@@ -32,7 +32,7 @@
       {% endif %}
 
       {% if authors %}
-        <div class="w-authors">
+        <div class="w-authors w-mt--xl w-pt--sm">
           {% for author in authors %}
             {% Author {
               post: page,
