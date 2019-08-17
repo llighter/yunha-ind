@@ -43,7 +43,7 @@ module.exports = function(eleventyConfig) {
   // eleventyConfig.addPassthroughCopy("dist");
 
   // Copy the src/images directort
-  eleventyConfig.addPassthroughCopy("src/images");
+  // eleventyConfig.addPassthroughCopy("src/images");
 
   // image 경로 추가?
   // eleventyConfig.addPassthroughCopy("posts/201906")
