@@ -21,9 +21,15 @@ I'm the owner of this website.
 Welcome to all of you guys.
 Feel free to seeing around.
 
-```java
-System.out.println("test");
 
+``` js
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) {
+    console.log(entry);
+  }
+})
+
+observer.observe({type: 'layout-shift', buffered: true});
 ```
 
 Thank you.

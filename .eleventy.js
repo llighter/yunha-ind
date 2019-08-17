@@ -1,8 +1,13 @@
 const { DateTime } = require("luxon");
 const fs = require("fs");
+
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
+const markdownIt = require('markdown-it');
+const markdownItAnchor = require('markdown-it-anchor');
+const markdownItAttrs = require('markdown-it-attrs');
+const slugify = require('slugify');
 
 const componentsDir = 'src/site/_includes/components';
 const Hero = require(`./${componentsDir}/Hero`);
@@ -16,30 +21,45 @@ const prettyDate = require(`./${filtersDir}/pretty-date`);
 
 module.exports = function(eleventyConfig) {
 
-  eleventyConfig.addPlugin(pluginRss);
+  //----------------------------------------------------------------------------
+  // PLUGINS
+  //----------------------------------------------------------------------------
+  // Syntax highlighting for code snippets
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
+  // RSS feeds
+  eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.setDataDeepMerge(true);
 
-  eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
-
-  eleventyConfig.addFilter("readableDate", dateObj => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
-  });
-
-  // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-  eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
-  });
-
-  // Get the first `n` elements of a collection.
-  eleventyConfig.addFilter("head", (array, n) => {
-    if( n < 0 ) {
-      return array.slice(n);
-    }
-
-    return array.slice(0, n);
-  });
-
+  //----------------------------------------------------------------------------
+  // MARKDOWN
+  //----------------------------------------------------------------------------
+  let markdownItOptions = {
+    html: true,
+  };
+  let markdownItAnchorOptions = {
+    level: 2,
+    permalink: true,
+    permalinkClass: 'w-headline-link',
+    permalinkSymbol: '#',
+    slugify: function(str) {
+      return slugify(str, {
+        replacement: '-',
+        lower: true,
+      });
+    },
+  };
+  const markdownItAttrsOpts = {
+    leftDelimiter: '{:',
+    rightDelimiter: '}',
+    allowedAttributes: ['id', 'class', /^data\-.*$/],
+  };
+  eleventyConfig.setLibrary(
+    'md',
+    markdownIt(markdownItOptions)
+      .use(markdownItAnchor, markdownItAnchorOptions)
+      .use(markdownItAttrs, markdownItAttrsOpts)
+  );
+  
   // eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
 
   // eleventyConfig.addPassthroughCopy("img");
@@ -50,26 +70,23 @@ module.exports = function(eleventyConfig) {
   // Copy the src/images directort
   // eleventyConfig.addPassthroughCopy("src/images");
 
-  // image 경로 추가?
-  // eleventyConfig.addPassthroughCopy("posts/201906")
-
   /* Markdown Plugins */
-  let markdownIt = require("markdown-it");
-  let markdownItAnchor = require("markdown-it-anchor");
-  let options = {
-    html: true,
-    breaks: true,
-    linkify: true
-  };
-  let opts = {
-    permalink: true,
-    permalinkClass: "direct-link",
-    permalinkSymbol: "#"
-  };
+  // let markdownIt = require("markdown-it");
+  // let markdownItAnchor = require("markdown-it-anchor");
+  // let options = {
+  //   html: true,
+  //   breaks: true,
+  //   linkify: true
+  // };
+  // let opts = {
+  //   permalink: true,
+  //   permalinkClass: "direct-link",
+  //   permalinkSymbol: "#"
+  // };
 
-  eleventyConfig.setLibrary("md", markdownIt(options)
-    .use(markdownItAnchor, opts)
-  );
+  // eleventyConfig.setLibrary("md", markdownIt(options)
+  //   .use(markdownItAnchor, opts)
+  // );
 
   // eleventyConfig.setBrowserSyncConfig({
   //   callbacks: {
@@ -89,6 +106,23 @@ module.exports = function(eleventyConfig) {
   // FILTERS
   //----------------------------------------------------------------------------
   eleventyConfig.addFilter('prettyDate', prettyDate);
+  eleventyConfig.addFilter("readableDate", dateObj => {
+    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
+  });
+
+  // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
+  eleventyConfig.addFilter('htmlDateString', (dateObj) => {
+    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
+  });
+
+  // Get the first `n` elements of a collection.
+  eleventyConfig.addFilter("head", (array, n) => {
+    if( n < 0 ) {
+      return array.slice(n);
+    }
+
+    return array.slice(0, n);
+  });
 
   //----------------------------------------------------------------------------
   // SHORTCODES
@@ -98,7 +132,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addShortcode('AuthorInfo', AuthorInfo);
   eleventyConfig.addShortcode('PostCard', PostCard);
   eleventyConfig.addShortcode('Breadcrumbs', Breadcrumbs);
-  
+
   return {
     templateFormats: [
       "md",
