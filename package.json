@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "webpack -p --output-path ./docs",
+    "build:webpack": "webpack -p --output-path ./docs",
+    "build:gulp": "npx gulp build",
+    "build:eleventy": "eleventy",
+    "build": "npm run build:eleventy && npm run build:gulp && npm run build:webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -36,6 +39,14 @@
     "css-loader": "^1.0.0",
     "extract-loader": "^3.0.0",
     "file-loader": "^2.0.0",
+    "gulp": "^4.0.2",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^6.0.0",
+    "gulp-remove-code": "^3.0.4",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-pngquant": "^8.0.0",
     "luxon": "^1.12.0",
     "markdown-it": "^8.4.2",
     "markdown-it-anchor": "^5.0.2",
