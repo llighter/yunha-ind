@@ -9,30 +9,28 @@ permalink: /blog/index.html
 description: My latest news, updates, and stories for developers
 ---
 
-<div class="yunha-inc--fixed-adjust">
-  <div class="mdc-layout-grid">
-    <div class="mdc-layout-grid__inner yunha-inc-title">
-      <div class="mdc-layout-grid__cell--span-2"></div>
-      <div class="mdc-layout-grid__cell--span-8">
-        <div class="w-layout-container w-pb--non">
-          <header class="w-page-header">
-            <h1 class="w-page-header__headline">{{ title }}</h1>
-            <p class="w-page-header__copy">
-            {{ description }}
-            </p>
-          </header>
-        </div>
+<div class="mdc-layout-grid">
+  <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell--span-2"></div>
+    <div class="mdc-layout-grid__cell--span-8">
+      <div class="w-layout-container w-pb--non">
+        <header class="w-page-header">
+          <h1 class="w-page-header__headline">{{ title }}</h1>
+          <p class="w-page-header__copy">
+          {{ description }}
+          </p>
+        </header>
       </div>
-      <div class="mdc-layout-grid__cell--span-2"></div>
     </div>
+    <div class="mdc-layout-grid__cell--span-2"></div>
   </div>
+</div>
 
-  <div class="y-layout-container mdc-layout-grid">
-    <div class="mdc-layout-grid__inner">
-      {%- for post in collections.post -%}
-        {% PostCard {post: post} %}
-      {%- endfor -%}
+<div class="y-layout-container mdc-layout-grid">
+  <div class="mdc-layout-grid__inner">
+    {%- for post in collections.post -%}
+      {% PostCard {post: post} %}
+    {%- endfor -%}
 
-    </div>
   </div>
 </div>

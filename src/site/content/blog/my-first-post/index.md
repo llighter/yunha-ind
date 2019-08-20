@@ -14,8 +14,6 @@ tags:
   - post
 ---
 
-# This is HEADLINE
-
 ## this is phasse
 
 A great deal of talent is lost in the world for want of a little courage.

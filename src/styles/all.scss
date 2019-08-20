@@ -78,6 +78,7 @@ body {
 }
 
 // 여기도 마찬가지로 br이 아니라 padding-top을 주었다.
+// deprecated
 .yunha-inc--fixed-adjust {
     padding-top: 112px;
 }
@@ -146,10 +147,4 @@ $card-secondary-baseline: 16px;
 
 .mdc-card__actions { 
     justify-content: flex-end; 
-}
-
-// 제목 내용을 가운데 정렬하기
-.yunha-inc-title {
-    text-align: center;
-    padding-bottom: 3em;
 }
