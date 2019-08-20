@@ -98,7 +98,7 @@ body {
 
 .mdc-top-app-bar {
     // 좁은 화면에서는 서랍으로 네비게이션
-    @include bp(sm) {
+    @include bp(xsm) {
         .mdc-tab-bar {
             display: none;
         }
