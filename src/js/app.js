@@ -65,9 +65,9 @@ topAppBar.listen('MDCTopAppBar:nav', () => {
 
 // TODO: 예제에 있는 코드인데 어떤 의미인지 파악해야 한다.
 // 입력값이 있으면 그 곳으로 포커싱을 옮기는다는것 같은데 내 사이트에서 필요한지는 의문이다.
-document.body.addEventListener('MDCDrawer:closed', () => {
-  mainContentEl.querySelector('input, button').focus();
-});
+// document.body.addEventListener('MDCDrawer:closed', () => {
+//   mainContentEl.querySelector('input, button').focus();
+// });
 
 
 

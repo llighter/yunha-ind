@@ -41,4 +41,12 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({type: 'layout-shift', buffered: true});
 ```
 
+{% Aside 'codelab' %}
+Technically, this test will also pass if your site contains any
+`h1`-`h6` elements or any of the HTML5 landmark
+elements. But although the test is vague in its requirements, it's still
+nice to pass it if you can!
+{% endAside %}
+
+
 Thank you.
