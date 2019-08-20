@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 
 <head>
+  <title>{{ title if title else path.title }}</title>
+  <meta name="description" content="{{description if description else path.description}}" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="full_width" value="true" />
   <link rel="stylesheet" href="/bundle.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="preconnect" href="//fonts.googleapis.com" crossorigin="" />
@@ -10,7 +13,6 @@
     rel="stylesheet"
     href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic|Roboto+Condensed:400,700|Roboto+Mono:400,500|Material+Icons"
   />
-  <title>{{ title if title else path.title }}</title>
 </head>
 <body>
   <aside class="mdc-drawer mdc-drawer--modal">
@@ -20,18 +22,12 @@
     </div>
     <div class="mdc-drawer__content">
       <nav class="mdc-list">
-        <a class="mdc-list-item mdc-list-item--activated" href="/blog" aria-current="page">
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">book</i>
-          <span class="mdc-list-item__text">Blog</span>
-        </a>
-        <a class="mdc-list-item" href="#">
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
-          <span class="mdc-list-item__text">Resume</span>
-        </a>
-        <a class="mdc-list-item" href="#">
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">work</i>
-          <span class="mdc-list-item__text">Project</span>
-        </a>
+        {%- for nav in collections.nav | reverse -%}
+          <a class="mdc-list-item {% if nav.url == page.url %}mdc-list-item--activated{% endif %}" href="{{nav.url}}" aria-current="page">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">{{ nav.data.navIcon }}</i>
+            <span class="mdc-list-item__text">{{ nav.data.navtitle }}</span>
+          </a>
+        {%- endfor -%}
       </nav>
     </div>
   </aside>
@@ -65,16 +61,6 @@
                   </button>
                 </a>
                 {%- endfor -%}
-                
-                <button class="mdc-tab yunha-inc-tab mdc-tab--min-width" role="tab" aria-selected="false" tabindex="-1">
-                  <span class="mdc-tab__content">
-                    <span class="mdc-tab__text-label">Resume</span>
-                  </span>
-                  <span class="mdc-tab-indicator yunha-inc-tab-indicator">
-                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                  </span>
-                  <span class="mdc-tab__ripple"></span>
-                </button>
               </div>
             </div>
           </div>

@@ -1,11 +1,12 @@
 ---
 layout: layout
-title: Blog
+title: Resume
 tags:
   - nav
-navtitle: Blog
-navIcon: create
-permalink: /blog/index.html
+navtitle: Resume
+navIcon: description
+description: |
+  YUNHA's resume
 ---
 
 <div class="yunha-inc--fixed-adjust">
@@ -14,18 +15,9 @@ permalink: /blog/index.html
       <div class="mdc-layout-grid__cell--span-2"></div>
       <div class="mdc-layout-grid__cell--span-8">
         <h1 class="mdc-typography--headline1">{{ title }}</h1>
-        <h2 class="mdc-typography--subtitle1">My latest news, updates, and stories for developers</h2>
+        <h2 class="mdc-typography--subtitle1">{{ description }}</h2>
       </div>
       <div class="mdc-layout-grid__cell--span-2"></div>
-    </div>
-  </div>
-
-  <div class="y-layout-container mdc-layout-grid">
-    <div class="mdc-layout-grid__inner">
-      {%- for post in collections.post -%}
-        {% PostCard {post: post} %}
-      {%- endfor -%}
-
     </div>
   </div>
 </div>
