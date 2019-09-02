@@ -17,9 +17,13 @@ const PostCard = require(`./${componentsDir}/PostCard`);
 const Breadcrumbs = require(`./${componentsDir}/Breadcrumbs`);
 const Author = require(`./${componentsDir}/Author`);
 const AuthorInfo = require(`./${componentsDir}/AuthorInfo`);
+const ArticleNavigation = require(`./${componentsDir}/ArticleNavigation`);
 
 const filtersDir = 'src/site/_filters';
 const prettyDate = require(`./${filtersDir}/pretty-date`);
+const githubLink = require(`./${filtersDir}/github-link`);
+const stripLanguage = require(`./${filtersDir}/strip-language`);
+const {memoize, findBySlug} = require(`./${filtersDir}/find-by-slug`);
 
 module.exports = function(eleventyConfig) {
 
@@ -61,6 +65,13 @@ module.exports = function(eleventyConfig) {
       .use(markdownItAnchor, markdownItAnchorOptions)
       .use(markdownItAttrs, markdownItAttrsOpts)
   );
+
+  //----------------------------------------------------------------------------
+  // COLLECTIONS
+  //----------------------------------------------------------------------------
+  eleventyConfig.addCollection('memoized', function(collection) {
+    return memoize(collection.getAll());
+  });
   
   // eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
 
@@ -108,6 +119,8 @@ module.exports = function(eleventyConfig) {
   // FILTERS
   //----------------------------------------------------------------------------
   eleventyConfig.addFilter('prettyDate', prettyDate);
+  eleventyConfig.addFilter('findBySlug', findBySlug);
+  eleventyConfig.addFilter('stripLanguage', stripLanguage);
   eleventyConfig.addFilter("readableDate", dateObj => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
   });
@@ -125,6 +138,7 @@ module.exports = function(eleventyConfig) {
 
     return array.slice(0, n);
   });
+  eleventyConfig.addFilter('githubLink', githubLink);
 
   //----------------------------------------------------------------------------
   // SHORTCODES
@@ -136,6 +150,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPairedShortcode('Aside', Aside);
   eleventyConfig.addShortcode('PostCard', PostCard);
   eleventyConfig.addShortcode('Breadcrumbs', Breadcrumbs);
+  eleventyConfig.addShortcode('ArticleNavigation', ArticleNavigation);
 
   return {
     templateFormats: [
