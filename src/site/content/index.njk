@@ -24,7 +24,7 @@ description: |
 
 <div class="y-layout-container mdc-layout-grid">
   <div class="mdc-layout-grid__inner">
-    {%- for post in collections.post -%}
+    {%- for post in collections.recentPosts -%}
       {% PostCard {post: post} %}
     {%- endfor -%}
 
