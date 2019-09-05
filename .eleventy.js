@@ -19,6 +19,9 @@ const Author = require(`./${componentsDir}/Author`);
 const AuthorInfo = require(`./${componentsDir}/AuthorInfo`);
 const ArticleNavigation = require(`./${componentsDir}/ArticleNavigation`);
 
+const collectionsDir = 'src/site/_collections';
+const recentPosts = require(`./${collectionsDir}/recent-posts`);
+
 const filtersDir = 'src/site/_filters';
 const prettyDate = require(`./${filtersDir}/pretty-date`);
 const githubLink = require(`./${filtersDir}/github-link`);
@@ -69,6 +72,9 @@ module.exports = function(eleventyConfig) {
   //----------------------------------------------------------------------------
   // COLLECTIONS
   //----------------------------------------------------------------------------
+  eleventyConfig.addCollection('recentPosts', recentPosts);
+  // Turn collection.all into a lookup table so we can use findBySlug
+  // to quickly find collection items without looping
   eleventyConfig.addCollection('memoized', function(collection) {
     return memoize(collection.getAll());
   });
