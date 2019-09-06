@@ -2,31 +2,64 @@
 layout: layout
 title: YUNHA Industry
 description: |
-  Welcome to YUNHA Industry. It is an honer to greet to you guys. Happy Hacking.
+  YUNHA Industry: 세상의 일부를 만드는 곳입니다.
 ---
 
-<div class="mdc-layout-grid">
-  <div class="mdc-layout-grid__inner">
-    <div class="mdc-layout-grid__cell--span-2"></div>
-    <div class="mdc-layout-grid__cell--span-8">
-      <div class="w-layout-container w-pb--non">
-        <header class="w-page-header">
-          <h1 class="w-page-header__headline">{{ title }}</h1>
-          <p class="w-page-header__copy">
+<div>
+  <header class="w-masthead-home">
+    <div class="w-masthead-home__container">
+      <div class="w-masthead-home__left">
+        <h1 class="w-headline--two w-font-weight--medium">
           {{ description }}
-          </p>
-        </header>
+        </h1>
+        <p>
+          시작은 미약할지라고 그 끝은 꽤 멋질 것입니다.
+        </p>
+        <div class="w-masthead-home__buttons">
+          <a
+            class="w-button w-button--primary w-masthead-home__button--primary gc-analytics-event"
+            data-action="click"
+            href="*"
+          >
+            배우기
+          </a>
+          <a
+            class="w-button w-button--secondary gc-analytics-event"
+            data-action="click"
+            href="/blog"
+          >
+            글 읽으러가기
+          </a>
+        </div>
       </div>
     </div>
-    <div class="mdc-layout-grid__cell--span-2"></div>
-  </div>
+  </header>
+
+  <section>
+    <div class="w-layout-container w-pb--non">
+      <header class="w-text--center">
+        <h2 class="w-headline--two-faded">
+          최근의 이야기들
+        </h2>
+        <p>
+          새로운 이야기들과 팁 그리고 기술들을 배울 수 있습니다.
+        </p>
+      </header>
+    </div>
+    <div class="y-layout-container mdc-layout-grid">
+      <div class="mdc-layout-grid__inner">
+        {%- for post in collections.recentPosts -%}
+          {% PostCard {post: post} %}
+        {%- endfor -%}
+      </div>
+    </div>
+    <div class="w-layout-container w-pt--non w-pb--xl">
+      <div class="w-text--center">
+        <a class="w-button" href="/blog">
+          모든 글 보기
+        </a>
+      </div>
+    </div>
+  </section>
 </div>
 
-<div class="y-layout-container mdc-layout-grid">
-  <div class="mdc-layout-grid__inner">
-    {%- for post in collections.recentPosts -%}
-      {% PostCard {post: post} %}
-    {%- endfor -%}
-
-  </div>
-</div>
