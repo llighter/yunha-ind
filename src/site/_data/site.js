@@ -18,7 +18,7 @@ module.exports = {
   env: process.env.ELEVENTY_ENV || 'dev',
   title: 'web.dev',
   titleVariation: 'Home',
-  url: 'https:/llighter.github,io',
+  url: 'https:/llighter.github.io',
   repo: 'https://github.com/llighter/yunha-ind.git',
-  subscribe: 'https://web.dev/subscribe',
+  // subscribe: 'https://web.dev/subscribe',
 };
