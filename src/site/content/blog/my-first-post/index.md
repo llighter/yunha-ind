@@ -40,6 +40,8 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({type: 'layout-shift', buffered: true});
 ```
 
+## Aside 유형
+
 {% Aside 'codelab' %}
 Technically, this test will also pass if your site contains any
 `h1`-`h6` elements or any of the HTML5 landmark
@@ -47,5 +49,37 @@ elements. But although the test is vague in its requirements, it's still
 nice to pass it if you can!
 {% endAside %}
 
+{% Aside 'caution' %}
+사용시 주의사항을 작성하는데 사용한다.
+{% endAside %}
+
+{% Aside 'key-term' %}
+용어를 설명할 때 사용한다.
+{% endAside %}
+
+{% Aside 'caution' %}
+주의사항을 작성할 때 사용한다.
+{% endAside %}
+
+{% Aside 'warning' %}
+경고사항을 작성할 때 사용한다.
+{% endAside %}
+
+{% Aside 'success' %}
+성공했을 때 사용한다.
+{% endAside %}
+
+{% Aside 'objective' %}
+목적을 기술할 떄 사용한다.
+{% endAside %}
+
+{% Aside 'gotchas' %}
+강조 하고 싶을 때 사용한다.
+{% endAside %}
+
+## Images
+
+
+![image](incompatible-with-catalina.png)
 
 Thank you.
