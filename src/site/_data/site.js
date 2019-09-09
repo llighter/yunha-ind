@@ -19,6 +19,6 @@ module.exports = {
   title: 'web.dev',
   titleVariation: 'Home',
   url: 'https:/llighter.github.io',
-  repo: 'https://github.com/llighter/yunha-ind.git',
+  repo: 'https://github.com/llighter/yunha-ind',
   // subscribe: 'https://web.dev/subscribe',
 };
