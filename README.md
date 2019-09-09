@@ -8,7 +8,7 @@ A starter repository showing how to build a blog with the [Eleventy](https://git
 ### 1. Clone this repository:
 
 ```
-git clone https://github.com/llighter/llighter.github.io.git my-blog-name
+git clone https://github.com/llighter/yunha-ind.git my-blog-name
 ```
 
 
@@ -30,21 +30,32 @@ npm install
 
 ### 5. Run Eleventy
 
+In this project, I'm using `webpack` and `gulp` with `eleventy`. You need to use `npm run build` command to build this project at Once.
+
+```json
+"scripts": {
+    "start": "eleventy --serve",
+    "build:webpack": "webpack -p --output-path ./docs",
+    "build:gulp": "npx gulp build",
+    "build:eleventy": "eleventy",
+    "build": "npm run build:eleventy && npm run build:gulp && npm run build:webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+},
 ```
-npx eleventy
+
+```bash
+# build all at once
+npm run build
 ```
+
+
 
 Or build and host locally for local development
-```
+
+```bash
+# run directly
 npx eleventy --serve
-```
 
-Or build automatically when a template changes:
-```
-npx eleventy --watch
-```
-
-Or in debug mode:
-```
-DEBUG=* npx eleventy
+# run with npm command
+npm run start
 ```
