@@ -6,7 +6,7 @@ date: 2019-08-01
 updated: 2019-08-17
 authors:
   - llighter
-hero: hero.jpeg
+hero: hero.jpg
 alt: First Step for my website
 description: |
   My first blog post using 11ty and Material Design Component.
