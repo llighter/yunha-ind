@@ -9,7 +9,8 @@
     "build:gulp": "npx gulp build",
     "build:eleventy": "eleventy",
     "build": "npm run build:eleventy && npm run build:gulp && npm run build:webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "ELEVENTY_ENV=prod npm run build"
   },
   "repository": {
     "type": "git",
