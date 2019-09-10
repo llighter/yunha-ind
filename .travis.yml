@@ -22,7 +22,7 @@ before_script:
 - git config --global user.email hadbsgkgmail.com
 
 script:
-- npm run build # eleventy & gulp & webpack build
+- npm run deploy # eleventy & gulp & webpack build with image compresstion
 
 # Deployment
 deploy:
