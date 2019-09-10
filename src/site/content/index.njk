@@ -2,7 +2,7 @@
 layout: layout
 title: YUNHA Industry
 description: |
-  YUNHA Industry: 세상의 일부를 만드는 곳입니다.
+  윤하 🏭 -  만들고 싶은 것을 만들고, 그리고 싶은 것을 그리고 기록하고 싶은 것을 기록합니다.
 ---
 
 <div>
@@ -13,7 +13,7 @@ description: |
           {{ description }}
         </h1>
         <p>
-          시작은 미약할지라고 그 끝은 꽤 멋질 것입니다.
+          프로그래밍, 일기, 공부, 사업, 하고 싶은거 전부 다🔥
         </p>
         <div class="w-masthead-home__buttons">
           <a
@@ -35,18 +35,30 @@ description: |
     </div>
   </header>
 
+  <section class="w-layout-container w-text--center">
+    <p class="w-headline--two-small">
+      윤하 🏭 에서는 웹, 앱, 클라우드, 머신러닝, 경제, 사업 등 학교를 벗어나 자유롭게 무엇이든 만들고 써내려갑니다.
+    </p>
+    <a
+      class="w-button"
+      href="/about"
+    >
+      About 윤하 🏭 
+    </a>
+  </section>
+
   <section>
     <div class="w-layout-container w-pb--non">
       <header class="w-text--center">
         <h2 class="w-headline--two-faded">
-          최근의 이야기들
+          최근에 쓴 글들
         </h2>
         <p>
           새로운 이야기들과 팁 그리고 기술들을 배울 수 있습니다.
         </p>
       </header>
     </div>
-    <div class="y-layout-container mdc-layout-grid">
+    <div class="w-layout-container mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
         {%- for post in collections.recentPosts -%}
           {% PostCard {post: post} %}
@@ -56,7 +68,7 @@ description: |
     <div class="w-layout-container w-pt--non w-pb--xl">
       <div class="w-text--center">
         <a class="w-button" href="/blog">
-          모든 글 보기
+          모든 글📄 보기
         </a>
       </div>
     </div>
