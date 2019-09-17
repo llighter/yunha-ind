@@ -19,6 +19,9 @@ const Author = require(`./${componentsDir}/Author`);
 const AuthorInfo = require(`./${componentsDir}/AuthorInfo`);
 const ArticleNavigation = require(`./${componentsDir}/ArticleNavigation`);
 
+const tagsDir = 'src/site/_includes/components/tags';
+const {Image, Figure} = require(`./${tagsDir}/Image`);
+
 const collectionsDir = 'src/site/_collections';
 const recentPosts = require(`./${collectionsDir}/recent-posts`);
 
@@ -83,29 +86,9 @@ module.exports = function(eleventyConfig) {
 
   // eleventyConfig.addPassthroughCopy("img");
   // eleventyConfig.addPassthroughCopy("css");
-  // webpack으로 배출한 결과 파일 경로 추가
-  // eleventyConfig.addPassthroughCopy("dist");
 
   // Copy the src/images directort
   // eleventyConfig.addPassthroughCopy("src/images");
-
-  /* Markdown Plugins */
-  // let markdownIt = require("markdown-it");
-  // let markdownItAnchor = require("markdown-it-anchor");
-  // let options = {
-  //   html: true,
-  //   breaks: true,
-  //   linkify: true
-  // };
-  // let opts = {
-  //   permalink: true,
-  //   permalinkClass: "direct-link",
-  //   permalinkSymbol: "#"
-  // };
-
-  // eleventyConfig.setLibrary("md", markdownIt(options)
-  //   .use(markdownItAnchor, opts)
-  // );
 
   // eleventyConfig.setBrowserSyncConfig({
   //   callbacks: {
@@ -158,12 +141,16 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addShortcode('Breadcrumbs', Breadcrumbs);
   eleventyConfig.addShortcode('ArticleNavigation', ArticleNavigation);
 
+  //----------------------------------------------------------------------------
+  // CUSTOM TAGS
+  //----------------------------------------------------------------------------
+  eleventyConfig.addNunjucksTag('Image', Image);
+  eleventyConfig.addNunjucksTag('Figure', Figure);
+
   return {
     templateFormats: [
       "md",
       "njk",
-      "html",
-      "liquid"
     ],
 
     // If your site lives in a different subdirectory, change this.
