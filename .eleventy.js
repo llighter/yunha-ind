@@ -23,6 +23,7 @@ const tagsDir = 'src/site/_includes/components/tags';
 const {Image, Figure} = require(`./${tagsDir}/Image`);
 
 const collectionsDir = 'src/site/_collections';
+const recentTips = require(`./${collectionsDir}/recent-tips`);
 const recentPosts = require(`./${collectionsDir}/recent-posts`);
 
 const filtersDir = 'src/site/_filters';
@@ -75,6 +76,7 @@ module.exports = function(eleventyConfig) {
   //----------------------------------------------------------------------------
   // COLLECTIONS
   //----------------------------------------------------------------------------
+  eleventyConfig.addCollection('recentTips', recentTips);
   eleventyConfig.addCollection('recentPosts', recentPosts);
   // Turn collection.all into a lookup table so we can use findBySlug
   // to quickly find collection items without looping
