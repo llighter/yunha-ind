@@ -25,7 +25,7 @@ module.exports = ({post}) => {
       <a href='${ post.url }' class="mdc-layout-grid__cell w-card">
         <div class="mdc-card mdc-card--outlined yunha-inc-card">
           <div class="yunha-inc-image mdc-card__media mdc-card__media--square"
-            style="background-image: url('${post.url + hero}')"></div>
+            style="background-image: url('${post.url + hero}'); background-size: ${data.cardHeroFit}"></div>
           <div class="yunha-inc-card__text-label">${ data.title }</div>
           <div class="yunha-inc-card__secondary mdc-typography--body2">${ data.subhead }</div>
           <div class="mdc-card__actions">

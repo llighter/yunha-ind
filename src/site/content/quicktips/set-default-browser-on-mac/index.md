@@ -6,6 +6,7 @@ date: 2019-10-09
 authors:
   - llighter
 hero: hero.png
+cardHeroFit: contain
 alt: set default broswer on mac
 description: |
   맥에서 링크를 열거나 인터넷을 이용할 떄 사용하는 브라우저를 자신이 원하는 것으로 설정해보자.
