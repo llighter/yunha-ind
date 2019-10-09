@@ -73,5 +73,32 @@ description: |
       </div>
     </div>
   </section>
+
+  <section>
+    <div class="w-layout-container w-pb--non">
+      <header class="w-text--center">
+        <h2 class="w-headline--two-faded">
+          짧은 팁 및 코드 예제 모음
+        </h2>
+        <p>
+          간단하게 배울 수 있는 짧은 팁이나 간단한 코드 예제를 모아두었습니다.
+        </p>
+      </header>
+    </div>
+    <div class="w-layout-container mdc-layout-grid">
+      <div class="mdc-layout-grid__inner">
+        {%- for tip in collections.recentTips -%}
+          {% PostCard {post: tip} %}
+        {%- endfor -%}
+      </div>
+    </div>
+    <div class="w-layout-container w-pt--non w-pb--xl">
+      <div class="w-text--center">
+        <a class="w-button" href="/quicktips">
+          모든 팁 보기
+        </a>
+      </div>
+    </div>
+  </section>
 </div>
 

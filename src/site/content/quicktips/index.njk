@@ -1,0 +1,36 @@
+---
+layout: layout
+title: Quick Tips
+tags:
+  - nav
+navtitle: Quick Tips
+navIcon: speed
+description: |
+  Quick Tips는 짧은 팁이나 코드 예제를 모아둔 곳입니다.
+---
+
+<div class="mdc-layout-grid">
+  <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell--span-2"></div>
+    <div class="mdc-layout-grid__cell--span-8">
+      <div class="w-layout-container w-pb--non">
+        <header class="w-page-header">
+          <h1 class="w-page-header__headline">{{ title }}</h1>
+          <p class="w-page-header__copy">
+          {{ description }}
+          </p>
+        </header>
+      </div>
+    </div>
+    <div class="mdc-layout-grid__cell--span-2"></div>
+  </div>
+</div>
+
+<div class="w-layout-container mdc-layout-grid">
+  <div class="mdc-layout-grid__inner">
+    {%- for tip in collections.tip -%}
+      {% PostCard {post: tip} %}
+    {%- endfor -%}
+
+  </div>
+</div>
