@@ -27,6 +27,7 @@ const recentTips = require(`./${collectionsDir}/recent-tips`);
 const recentPosts = require(`./${collectionsDir}/recent-posts`);
 
 const filtersDir = 'src/site/_filters';
+const md = require(`./${filtersDir}/md`);
 const prettyDate = require(`./${filtersDir}/pretty-date`);
 const githubLink = require(`./${filtersDir}/github-link`);
 const stripLanguage = require(`./${filtersDir}/strip-language`);
@@ -109,6 +110,7 @@ module.exports = function(eleventyConfig) {
   //----------------------------------------------------------------------------
   // FILTERS
   //----------------------------------------------------------------------------
+  eleventyConfig.addFilter('md', md);
   eleventyConfig.addFilter('prettyDate', prettyDate);
   eleventyConfig.addFilter('findBySlug', findBySlug);
   eleventyConfig.addFilter('stripLanguage', stripLanguage);
@@ -173,6 +175,6 @@ module.exports = function(eleventyConfig) {
     // Because eleventy's passthroughFileCopy does not work with permalinks
     // we need to manually copy assets ourselves using gulp.
     // https://github.com/11ty/eleventy/issues/379
-    passthroughFileCopy: true,
+    passthroughFileCopy: false,
   };
 };
