@@ -65,3 +65,11 @@
 .w-eyebrow {
   @include font($EYEBROW);
 }
+
+// Temporary fix issue #36
+h2::before {
+  content: "";
+  display: block;
+  height: 60px; /* fixed header height*/
+  margin: -60px 0 0; /* negative fixed header height */
+}

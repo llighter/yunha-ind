@@ -55,12 +55,20 @@ module.exports = function(eleventyConfig) {
     permalink: true,
     permalinkClass: 'w-headline-link',
     permalinkSymbol: '#',
-    slugify: function(str) {
-      return slugify(str, {
-        replacement: '-',
-        lower: true,
-      });
-    },
+    // slugify: function(str) {
+    //   return slugify(str, {
+    //     replacement: '-',
+    //     lower: true,
+    //   });
+    // },
+    // TODO #26 1. Edit .eleventy.js to enable non latin characters.
+    slugify: function (header) {
+      return encodeURI(header.trim()
+         .toLowerCase()
+        .replace(/[\]\[\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\\\^\_\{\|\}\~]/g, '') //remove symbol
+        .replace(/\s+/g, '-')) // Replace spaces with hyphens
+        .replace(/\-+$/, ''); // Replace trailing hyphen
+    }
   };
   const markdownItAttrsOpts = {
     leftDelimiter: '{:',
