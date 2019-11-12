@@ -1,5 +1,8 @@
 const { html } = require('common-tags');
+const md = require("../../_filters/md");
 const stripLanguage = require('../../_filters/strip-language');
+const getImagePath = require("../../_utils/get-image-path");
+const getSrcsetRange = require("../../_utils/get-srcset-range");
 
 /* eslint-disable require-jsdoc,indent */
 
@@ -11,32 +14,59 @@ const stripLanguage = require('../../_filters/strip-language');
 module.exports = ({post}) => {
   const url = stripLanguage(post.url);
   const data = post.data;
-  const hero = data && data.hero;
 
-  function renderHero(post, url) {
+  // If the post does not provide a thumbnail, attempt to reuse the hero image.
+  // Otherwise, omit the image entirely.
+  const thumbnail = data.thumbnail || data.hero || null;
+  const alt = data.alt || "";
+
+  function renderThumbnail(url, img, alt) {
+    debugger;
+    const imagePath = getImagePath(img, url);
+    const srcsetRange = getSrcsetRange(240, 768);
+
     return html`
       <figure class="w-post-card__figure">
-        <img class="w-post-card__image" src="${url + hero}" alt="${data.alt}" />
+        <img
+          class="w-post-card__image"
+          sizes="365px"
+          srcset="${srcsetRange.map(
+            (width) => html`
+              ${imagePath}?auto=format&fit=max&w=${width} ${width}w,
+            `,
+          )}"
+          src="${imagePath}"
+          alt="${alt}"
+          width="100%"
+          height="240"
+          loading="lazy"
+        />
       </figure>
     `;
   }
-  // TODO: Need to differentiate between with image and without image
   return html`
-      <a href='${ post.url }' class="mdc-layout-grid__cell w-card">
-        <div class="mdc-card mdc-card--outlined yunha-inc-card">
-          <div class="yunha-inc-image mdc-card__media mdc-card__media--square"
-            style="background-image: url('${post.url + hero}'); background-size: ${data.cardHeroFit}"></div>
-          <div class="yunha-inc-card__text-label">${ data.title }</div>
-          <div class="yunha-inc-card__secondary mdc-typography--body2">${ data.subhead }</div>
-          <div class="mdc-card__actions">
-            <div class="mdc-card__action-buttons">
-              <button class="mdc-button mdc-card__action mdc-card__action--button adopt-form__button">
-                <i class="material-icons mdc-button__icon">favorite_border</i> <span>Show</span>
-              </button>
-            </div>
-          </div>
+    <a href="${url}" class="w-card">
+      <article class="w-post-card">
+        <div
+          class="w-post-card__cover ${thumbnail &&
+            `w-post-card__cover--with-image`}"
+        >
+          ${thumbnail && renderThumbnail(url, thumbnail, alt)}
+          <h2
+            class="${thumbnail
+              ? `w-post-card__headline--with-image`
+              : `w-post-card__headline`}"
+          >
+            ${md(data.title)}
+          </h2>
         </div>
-      </a>
+        <div class="w-post-card__desc">
+          <p class="w-post-card__subhead">
+            ${md(data.subhead)}
+          </p>
+        </div>
+      </article>
+    </a>
   `;
 }
 
