@@ -26,11 +26,10 @@ description: |
   </div>
 </div>
 
-<div class="w-layout-container mdc-layout-grid">
-  <div class="mdc-layout-grid__inner">
+<div class="w-grid w-pb--std">
+  <div class="w-grid__columns w-grid__columns--gapless w-grid__columns--three" role="list">
     {%- for tip in collections.tip -%}
       {% PostCard {post: tip} %}
     {%- endfor -%}
-
   </div>
 </div>
