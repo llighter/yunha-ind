@@ -45,7 +45,7 @@ module.exports = ({post}) => {
     `;
   }
   return html`
-    <a href="${url}" class="w-card">
+    <a href="${url}" class="w-card" role="listitem">
       <article class="w-post-card">
         <div
           class="w-post-card__cover ${thumbnail &&
