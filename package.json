@@ -62,16 +62,17 @@
     "webpack-dev-server": "^3.1.11"
   },
   "dependencies": {
-    "@material/chips": "^2.3.0",
-    "@material/list": "^2.3.0",
     "@material/button": "^2.3.0",
     "@material/card": "^3.0.0",
+    "@material/chips": "^2.3.0",
     "@material/drawer": "^3.1.0",
     "@material/layout-grid": "^3.0.0",
+    "@material/list": "^2.3.0",
     "@material/ripple": "^2.3.0",
     "@material/tab": "^3.0.0",
     "@material/tab-bar": "^3.0.0",
     "@material/top-app-bar": "^2.3.0",
-    "@material/typography": "^2.3.0"
+    "@material/typography": "^2.3.0",
+    "unistore": "^3.5.1"
   }
 }
