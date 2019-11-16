@@ -79,6 +79,8 @@
     "@material/tab-bar": "^3.0.0",
     "@material/top-app-bar": "^2.3.0",
     "@material/typography": "^2.3.0",
+    "@webcomponents/webcomponentsjs": "^2.4.0",
+    "terser": "^4.4.0",
     "unistore": "^3.5.1"
   }
 }
