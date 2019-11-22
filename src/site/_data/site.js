@@ -20,5 +20,6 @@ module.exports = {
   titleVariation: 'Home',
   url: 'https:/llighter.github.io',
   repo: 'https://github.com/llighter/yunha-ind',
+  thumbnail: "/images/social.png"
   // subscribe: 'https://web.dev/subscribe',
 };

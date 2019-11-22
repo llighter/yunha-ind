@@ -2,150 +2,147 @@
 @import 'generic/all';
 @import 'components/all';
 @import 'pages/all';
+@import '../lib/components/all';
 @import 'overrides/all';
 
-//removeIf(production)
-// @import 'devsite/elements.scss';
-//endRemoveIf(production)
+// // Imports the Styles for each Material Component
+// @import "@material/button/mdc-button";
+// @import "@material/top-app-bar/mdc-top-app-bar";
+// @import "@material/card/mdc-card";
+// @import "@material/tab-bar/mdc-tab-bar";
+// @import "@material/tab-scroller/mdc-tab-scroller";
+// @import "@material/tab-indicator/mdc-tab-indicator";
+// @import "@material/tab/mdc-tab";
+// @import "@material/tab/mixins";
+// @import "@material/tab-indicator/mixins";
+// @import "@material/ripple/mixins";
+// @import "@material/card/mdc-card";
+// @import "@material/layout-grid/mdc-layout-grid";
+// @import "@material/typography/mixins";
+// @import "@material/typography/mdc-typography";
+// @import "@material/drawer/mdc-drawer";
+// @import "@material/list/mdc-list";
 
-// Imports the Styles for each Material Component
-@import "@material/button/mdc-button";
-@import "@material/top-app-bar/mdc-top-app-bar";
-@import "@material/card/mdc-card";
-@import "@material/tab-bar/mdc-tab-bar";
-@import "@material/tab-scroller/mdc-tab-scroller";
-@import "@material/tab-indicator/mdc-tab-indicator";
-@import "@material/tab/mdc-tab";
-@import "@material/tab/mixins";
-@import "@material/tab-indicator/mixins";
-@import "@material/ripple/mixins";
-@import "@material/card/mdc-card";
-@import "@material/layout-grid/mdc-layout-grid";
-@import "@material/typography/mixins";
-@import "@material/typography/mdc-typography";
-@import "@material/drawer/mdc-drawer";
-@import "@material/list/mdc-list";
+// // 미디어 쿼리 적용
+// @import "tools/breakpoints";
 
-// 미디어 쿼리 적용
-@import "tools/breakpoints";
+// :root {
+//     --red: #C5004A;
+//     --darkred: #7F0036;
+//     --lightgray: #e0e0e0;
+//     --gray: #C0C0C0;
+//     --darkgray: #333;
+//     --navy: #17050F;
+//     --blue: #082840;
+//     --white: #fff;
+// }
 
-:root {
-    --red: #C5004A;
-    --darkred: #7F0036;
-    --lightgray: #e0e0e0;
-    --gray: #C0C0C0;
-    --darkgray: #333;
-    --navy: #17050F;
-    --blue: #082840;
-    --white: #fff;
-}
-
-// Top App Bar 색상 설정
-.mdc-top-app-bar {
-    @include mdc-top-app-bar-fill-color(black);
-}
-
-// Top App Bar 쓸 때 화면 모서리에 붙게 해야 한다.
-body {
-    padding: 0;
-    margin: 0;
-}
-
-// tab bar의 높이와 맞추기 위해 임의 조정
-// TODO: 상위 항목을 맞추는게 아니라 아래 항목을 위에 항목의 높이를 상속 받아서 처리해야 할 것 같다.
+// // Top App Bar 색상 설정
 // .mdc-top-app-bar {
-//   height: 49px;
+//     @include mdc-top-app-bar-fill-color(black);
 // }
 
-// tab indicator 높이 조정
-// .mdc-tab-indicator {
-//     @include mdc-tab-indicator-underline-height(1em);
+// // Top App Bar 쓸 때 화면 모서리에 붙게 해야 한다.
+// body {
+//     padding: 0;
+//     margin: 0;
 // }
 
-// tab 색깔을 하얀색으로 설정
-.yunha-inc-tab {
-    @include mdc-tab-text-label-color(white);
-    @include mdc-tab-icon-color(white);
+// // tab bar의 높이와 맞추기 위해 임의 조정
+// // TODO: 상위 항목을 맞추는게 아니라 아래 항목을 위에 항목의 높이를 상속 받아서 처리해야 할 것 같다.
+// // .mdc-top-app-bar {
+// //   height: 49px;
+// // }
 
-    .mdc-tab__ripple {
-        @include mdc-states(white);
-    }
-}
+// // tab indicator 높이 조정
+// // .mdc-tab-indicator {
+// //     @include mdc-tab-indicator-underline-height(1em);
+// // }
 
-// tab 아래에 어떤 tab이 활성화 상태인지 알 수있게 해주는 indicator의 색 지정
-.yunha-inc-tab-indicator {
-    @include mdc-tab-indicator-underline-color(white);
-}
+// // tab 색깔을 하얀색으로 설정
+// .yunha-inc-tab {
+//     @include mdc-tab-text-label-color(white);
+//     @include mdc-tab-icon-color(white);
 
-// 여기도 마찬가지로 br이 아니라 padding-top을 주었다.
-// deprecated
-.yunha-inc--fixed-adjust {
-    padding-top: 112px;
-}
+//     .mdc-tab__ripple {
+//         @include mdc-states(white);
+//     }
+// }
 
-// Card
-// 카드들을 보여주는 공간의 최대 넓이
-// w-layout-container로 대체할 예정이다.
-// .y-layout-container {
-//     // max-width: 1480px;
-//     // CSS는 위에서 아래로 실행하기 때문에 작은 것 부터 조건 처리한다.
+// // tab 아래에 어떤 tab이 활성화 상태인지 알 수있게 해주는 indicator의 색 지정
+// .yunha-inc-tab-indicator {
+//     @include mdc-tab-indicator-underline-color(white);
+// }
+
+// // 여기도 마찬가지로 br이 아니라 padding-top을 주었다.
+// // deprecated
+// .yunha-inc--fixed-adjust {
+//     padding-top: 112px;
+// }
+
+// // Card
+// // 카드들을 보여주는 공간의 최대 넓이
+// // w-layout-container로 대체할 예정이다.
+// // .y-layout-container {
+// //     // max-width: 1480px;
+// //     // CSS는 위에서 아래로 실행하기 때문에 작은 것 부터 조건 처리한다.
+// //     @include bp(md) {
+// //         max-width: 1000px;
+// //     }
+
+// //     @include bp(lg) {
+// //         max-width: 1200px;
+// //     }
+// // }
+
+// .mdc-top-app-bar {
+//     // 좁은 화면에서는 서랍으로 네비게이션
+//     @include bp(xsm) {
+//         .mdc-tab-bar {
+//             display: none;
+//         }
+
+//         .mdc-top-app-bar__navigation-icon {
+//             display: inline-block;
+//         }
+//     }
+
+//     // 넓은 화면에서는 탭 바로 네비게이션
 //     @include bp(md) {
-//         max-width: 1000px;
+//         .mdc-tab-bar {
+//             display: block;
+//         };
+
+//         .mdc-top-app-bar__navigation-icon {
+//             display: none;
+//         }
 //     }
-
-//     @include bp(lg) {
-//         max-width: 1200px;
-//     }
-// }
-
-.mdc-top-app-bar {
-    // 좁은 화면에서는 서랍으로 네비게이션
-    @include bp(xsm) {
-        .mdc-tab-bar {
-            display: none;
-        }
-
-        .mdc-top-app-bar__navigation-icon {
-            display: inline-block;
-        }
-    }
-
-    // 넓은 화면에서는 탭 바로 네비게이션
-    @include bp(md) {
-        .mdc-tab-bar {
-            display: block;
-        };
-
-        .mdc-top-app-bar__navigation-icon {
-            display: none;
-        }
-    }
 
     
-}
+// }
 
-$card-text-label-baseline: 16px;
+// $card-text-label-baseline: 16px;
 
-.yunha-inc-card .mdc-card__actions {
-    margin-top: auto;
-}
+// .yunha-inc-card .mdc-card__actions {
+//     margin-top: auto;
+// }
 
-.yunha-inc-card__text-label {
-    margin: 0 16px;
-    @include mdc-typography(headline6);
-    @include mdc-typography-baseline-top(32px);
-    @include mdc-typography-baseline-bottom(-$card-text-label-baseline);
-}
+// .yunha-inc-card__text-label {
+//     margin: 0 16px;
+//     @include mdc-typography(headline6);
+//     @include mdc-typography-baseline-top(32px);
+//     @include mdc-typography-baseline-bottom(-$card-text-label-baseline);
+// }
 
-$card-secondary-baseline: 16px;
+// $card-secondary-baseline: 16px;
 
-.yunha-inc-card__secondary {
-  margin: 0 16px;
-  @include mdc-typography(body2);
-  @include mdc-typography-baseline-top(24px);
-  @include mdc-typography-baseline-bottom(-$card-secondary-baseline);
-}
+// .yunha-inc-card__secondary {
+//   margin: 0 16px;
+//   @include mdc-typography(body2);
+//   @include mdc-typography-baseline-top(24px);
+//   @include mdc-typography-baseline-bottom(-$card-secondary-baseline);
+// }
 
-.mdc-card__actions { 
-    justify-content: flex-end; 
-}
+// .mdc-card__actions { 
+//     justify-content: flex-end; 
+// }
