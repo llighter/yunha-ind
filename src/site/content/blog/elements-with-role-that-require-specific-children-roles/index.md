@@ -95,7 +95,7 @@ tags:
 </div>
 ```
 
-수정후에 다시 Lighthouse를 측정한 결과는 만족스로웠다.
+수정후에 다시 Lighthouse를 측정한 결과는 만족스웠다.
 
 ![image](after-edit.png)
 
