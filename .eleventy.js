@@ -11,6 +11,7 @@ const slugify = require('slugify');
 
 const componentsDir = 'src/site/_includes/components';
 const Hero = require(`./${componentsDir}/Hero`);
+const Meta = require(`./${componentsDir}/Meta`);
 const Aside = require(`./${componentsDir}/Aside`);
 const YouTube = require(`./${componentsDir}/YouTube`);
 const PostCard = require(`./${componentsDir}/PostCard`);
@@ -145,6 +146,7 @@ module.exports = function(eleventyConfig) {
   // SHORTCODES
   //----------------------------------------------------------------------------
   eleventyConfig.addShortcode('Hero', Hero);
+  eleventyConfig.addShortcode('Meta', Meta);
   eleventyConfig.addShortcode('YouTube', YouTube);
   eleventyConfig.addShortcode('Author', Author);
   eleventyConfig.addShortcode('AuthorInfo', AuthorInfo);
