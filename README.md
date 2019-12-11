@@ -30,24 +30,31 @@ npm install
 
 ### 5. Run Eleventy
 
-In this project, I'm using `webpack` and `gulp` with `eleventy`. You need to use `npm run build` command to build this project at Once.
+In this project, I'm using `rollup` and `gulp` and `sass` with `eleventy`. You need to use `npm run build` command to build this project at Once.
 
 ```json
 "scripts": {
+    "clean": "rm -rf docs",
     "start": "eleventy --serve",
-    "build:webpack": "webpack -p --output-path ./docs",
     "build:gulp": "npx gulp build",
-    "build:eleventy": "eleventy",
-    "build": "npm run build:eleventy && npm run build:gulp && npm run build:webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:eleventy": "eleventy --quiet",
+    "build:rollup": "node build.js",
+    "build:sass": "node ./compile-css.js src/styles/all.scss docs/app.css",
+    "build": "npm-run-all --serial clean build:sass build:eleventy build:gulp build:rollup",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "ELEVENTY_ENV=prod npm run build"
 },
 ```
 
 ```bash
-# build all at once
+# Build all at once
 npm run build
 ```
 
+```bash
+# Deploy all at once
+npm run deploy
+```
 
 
 Or build and host locally for local development
