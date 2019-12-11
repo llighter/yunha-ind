@@ -1,4 +1,5 @@
 const { html } = require('common-tags');
+const prettyDate = require('../../_filters/pretty-date');
 const md = require("../../_filters/md");
 const stripLanguage = require('../../_filters/strip-language');
 const getImagePath = require("../../_utils/get-image-path");
@@ -21,7 +22,6 @@ module.exports = ({post}) => {
   const alt = data.alt || "";
 
   function renderThumbnail(url, img, alt) {
-    debugger;
     const imagePath = getImagePath(img, url);
     const srcsetRange = getSrcsetRange(240, 768);
 
@@ -44,6 +44,65 @@ module.exports = ({post}) => {
       </figure>
     `;
   }
+
+  function renderAuthorImages(authors) {
+    if (!Array.isArray(authors) || authors.length > 2) return;
+
+    return html`
+      <div class="w-author__image--row">
+        ${authors
+          .map((authorId) => {
+            const author = data.contributors[authorId];
+            const fullName = `${author.name.given} ${author.name.family}`;
+            return html`
+              <div class="w-author__image--row-item">
+                <img
+                  class="w-author__image w-author__image--small"
+                  src="/images/authors/${authorId}.jpg"
+                  alt="${fullName}"
+                />
+              </div>
+            `;
+          })
+          .reverse()}
+      </div>
+    `;
+  }
+
+  function renderAuthorNames(authors) {
+    if (!Array.isArray(authors)) return;
+
+    return html`
+      <span class="w-autor__name">
+        ${authors
+          .map((authorId) => {
+            const author = data.contributors[authorId];
+            const fullName = `${author.name.given} ${author.name.family}`;
+            return html`
+              ${fullName}
+            `;
+          })
+          .join(", ")} 
+      </span>
+    `;
+  }
+
+  function renderAuthorsAndDate(post) {
+    const authors = post.data.authors;
+
+    return html`
+      <div class="w-authors__card">
+        ${renderAuthorImages(authors)}
+        <div>
+          ${renderAuthorNames(authors)}
+          <div class="w-author__published">
+            <time>${prettyDate(post.date)}</time>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
   return html`
     <a href="${url}" class="w-card" role="listitem">
       <article class="w-post-card">
@@ -60,6 +119,7 @@ module.exports = ({post}) => {
             ${md(data.title)}
           </h2>
         </div>
+        ${renderAuthorsAndDate(post)}
         <div class="w-post-card__desc">
           <p class="w-post-card__subhead">
             ${md(data.subhead)}
