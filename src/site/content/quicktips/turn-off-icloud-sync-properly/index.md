@@ -13,9 +13,8 @@ description: |
   "turn off icloud sync properly"
 tags:
   - tip
-  - flutter
-  - macOS
-  - catalina
+  - icloud
+  - sync
 ---
 
 구글에 구글 드라이브가 있다면 애플에게는 아이클라우드가 있다. 아이클라우드로 사진, 파일, 메시지 등 많은 것들을 동기화 할 수 있는데 맥 같은 경우 데스크탑(바탕화면)이나 문서 폴더에 있는 파일들도 자동으로 동기화되어 있다. 
