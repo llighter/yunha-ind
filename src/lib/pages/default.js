@@ -1,4 +1,6 @@
 /**
  * @fileoverview Default entrypoint for all pages.
  */
- import "../app";
+import "../components/CopyCode";
+
+import "../app";
