@@ -14,6 +14,7 @@ const Hero = require(`./${componentsDir}/Hero`);
 const Meta = require(`./${componentsDir}/Meta`);
 const Aside = require(`./${componentsDir}/Aside`);
 const YouTube = require(`./${componentsDir}/YouTube`);
+const Tooltip = require(`./${componentsDir}/Tooltip`);
 const PostCard = require(`./${componentsDir}/PostCard`);
 const Breadcrumbs = require(`./${componentsDir}/Breadcrumbs`);
 const Author = require(`./${componentsDir}/Author`);
@@ -76,11 +77,30 @@ module.exports = function(eleventyConfig) {
     rightDelimiter: '}',
     allowedAttributes: ['id', 'class', /^data\-.*$/],
   };
+
+  const mdLib = markdownIt(markdownItOptions)
+    .use(markdownItAnchor, markdownItAnchorOptions)
+    .use(markdownItAttrs, markdownItAttrsOpts)
+    .disable('code');
+
+  // custom renderer rules
+  const fence = mdLib.renderer.rules.fence;
+
+  const rules = {
+    fence: (tokens, idx, options, env, slf) => {
+      const fenced = fence(tokens, idx, options, env, slf);
+      return `<web-copy-code>${fenced}</web-copy-code>`;
+    },
+    // TODO: 테이블 관련 작업할 떄 사용하겠지?
+    // table_close: () => `</table>\n</div>`,
+    // table_open: () => `<div class="w-table-wrapper">\n<table>`,
+  }
+
+  mdLib.renderer.rules = {...mdLib.renderer.rules, ...rules};
+
   eleventyConfig.setLibrary(
     'md',
-    markdownIt(markdownItOptions)
-      .use(markdownItAnchor, markdownItAnchorOptions)
-      .use(markdownItAttrs, markdownItAttrsOpts)
+    mdLib
   );
 
   //----------------------------------------------------------------------------
@@ -149,6 +169,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addShortcode('Meta', Meta);
   eleventyConfig.addShortcode('YouTube', YouTube);
   eleventyConfig.addShortcode('Author', Author);
+  eleventyConfig.addShortcode('Tooltip', Tooltip);
   eleventyConfig.addShortcode('AuthorInfo', AuthorInfo);
   eleventyConfig.addPairedShortcode('Aside', Aside);
   eleventyConfig.addShortcode('PostCard', PostCard);
