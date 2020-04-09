@@ -16,21 +16,33 @@
 
 /**
  * @fileoverview A responsive header that can trigger a side-nav.
+ * 
+ * This does not inherit from BaseStateElement as it is not a LitElement.
  */
 
 import {store} from "../../store";
 import {expandSideNav} from "../../actions";
 
 class Header extends HTMLElement {
-    connectedCallback() {
-        this.hamburgerBtn = this.querySelector(".web-header__hamburger-btn");
-        this.hamburgerBtn.addEventListener("click", expandSideNav);
+    constructor() {
+        super();
 
         this.onStateChanged = this.onStateChanged.bind(this);
+    }
+
+    // When Header added to DOM activate hamburgerBtn and add click event listener
+    connectedCallback() {
+        this.hamburgerBtn = this.querySelector(".web-header__hamburger-btn");
+        this.hamburgerBtn.classList.remove("unresolved");
+        this.hamburgerBtn.addEventListener("click", expandSideNav);
+
         store.subscribe(this.onStateChanged);
     }
 
+    // When Header removed from DOM remove click event listener
     disconnectedCallBack() {
+        this.hamburgerBtn.removeEventListener("click", expandSideNav);
+
         store.unsubscribe(this.onStateChanged);
     }
 
@@ -39,10 +51,11 @@ class Header extends HTMLElement {
 
         // Ensure that the "active" attribute is applied to any matching header
         // link, or to none (for random subpages or articles).
+        currentUrl = currentUrl.replace(/"/g, '\\"');
+        currentUrl = (currentUrl.match(/^\/\w+\//) || [""])[0];
+
         const active = this.querySelector("[active]");
-        const updated = this.querySelector(
-            `[href="${currentUrl.replace(/"/g, '\\"')}"]`,
-        );
+        const updated = this.querySelector(`[href="${currentUrl}"]`);
 
         if (active === updated) {
             return;

@@ -19,6 +19,7 @@ import {BaseElement} from "../BaseElement";
 import {store} from "../../store";
 import "wicg-inert";
 import {collapseSideNav} from "../../actions";
+import "./_styles.scss";
 
 class SideNav extends BaseElement {
   static get properties() {
@@ -101,13 +102,36 @@ class SideNav extends BaseElement {
     this.addEventListener("touchend", this.onTouchEnd);
   }
 
-  onStateChanged() {
+  onStateChanged({currentUrl} = {}) {
     const {isSideNavExpanded} = store.getState();
     if (isSideNavExpanded === this.expanded) {
       return;
     }
 
     this.expanded = isSideNavExpanded;
+    if (currentUrl) {
+      // Ensure that the "active" attribute is applied to any matching header
+      // link, or to none (for random subpages or articles).
+      currentUrl = currentUrl.replace(/"/g, '\\"');
+      currentUrl = (currentUrl.match(/^\/\w+\//) || [""])[0];
+
+      const active = this.querySelector("[active]");
+      const updated = this.querySelector(`[href="${currentUrl}"]`);
+
+      if (active === updated) {
+        return;
+      }
+
+      if (active) {
+        active.removeAttribute("active");
+        active.removeAttribute("aria-current");
+      }
+
+      if (updated) {
+        updated.setAttribute("active", "");
+        updated.setAttribute("aria-current", "page");
+      }
+    }
   }
 
   onTouchStart(e) {
