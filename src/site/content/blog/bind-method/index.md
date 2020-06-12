@@ -1,5 +1,5 @@
 ---
-title: "클래스 컴포넌트에서 Bind 이벤트 핸들러가가 필요한 이유"
+title: "클래스 컴포넌트에서 Bind 메소드가 필요한 이유"
 subhead: |
   커스텀 엘리먼트(custom element)의 생성자(constructor)에서 컴포넌트 인스턴스에 이벤트 핸들러를 연결해주기 
 date: 2020-06-12

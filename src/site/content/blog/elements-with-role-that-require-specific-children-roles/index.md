@@ -22,7 +22,7 @@ tags:
 웹 페이지를 만들거나 운영하다 보면 하나부터 열까지 다 직접 문들기 때문에 무엇을 만들지 뺄지 광장히 자유롭게 설정할 수 있다. 그래서 맘에 안들면 바꾸면 된다. 이번에는 내 맘대로 바꾸는 것이 아니라 [Lighthouse](https://developers.google.com/web/tools/lighthouse/?hl=ko)라는 도구로 검출 된 내용을 내 웹 페이지에 반영해보려고 한다.
 
 {% Aside 'key-term' %}
-이 글을 읽는 살마들은 아마 웹 접근성이나 성능에 관심이 많은 사람일 것이라 생각한다. 내 웹 페이지가 접근하기 쉬운지 어려운지, 어렵다면 어떻게 하면 쉽게 만들 수 있는지 분석해주는 툴이 바로 [Lighthouse](https://developers.google.com/web/tools/lighthouse/?hl=ko)이다.
+이 글을 읽는 사람들은 아마 웹 접근성이나 성능에 관심이 많은 사람일 것이라 생각한다. 내 웹 페이지가 접근하기 쉬운지 어려운지, 어렵다면 어떻게 하면 쉽게 만들 수 있는지 분석해주는 툴이 바로 [Lighthouse](https://developers.google.com/web/tools/lighthouse/?hl=ko)이다.
 {% endAside %}
 
 ## Lighthouse 로 내 웹페이지 측정해보기
@@ -31,7 +31,7 @@ tags:
 
 {% Aside  %}
 혹시 Lighthouse를 처음 접하거나 사용해본적이 없는 사람들을 위해 간단한 사용법을 적어두었다.
-1번 혹은 2번은 내가 원할 떄 브라우저에서 바로 보거나 주소를 입력해서 타 사이트를 분석해 볼때 유용하게 사용할 수 있다.
+1번 혹은 2번은 내가 원할 때 브라우저에서 바로 보거나 주소를 입력해서 타 사이트를 분석해 볼때 유용하게 사용할 수 있다.
 1. 크롬에서 내 웹 페이지 접속 > 개발자 도구 > Audit 탭 선택 > 분석
 2. web.dev 접속 > Measure 메뉴 > 내 웹 페이지 주소 입력
 3. 크롬 웹스토어에서 [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=ko) 설치
