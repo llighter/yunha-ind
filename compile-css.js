@@ -24,7 +24,7 @@ const log = require("fancy-log");
 
 const sassEngine = (function() {
     try {
-        // node-sass is faster, but reqularly fails to install correctly (native bidings)
+        // node-sass is faster, but regularly fails to install correctly (native bidings)
         return require("node-sass");
     } catch (e) {
         // fallback to the official transpiled version
