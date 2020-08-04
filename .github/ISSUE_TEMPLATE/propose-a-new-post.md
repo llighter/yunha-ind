@@ -13,8 +13,6 @@ assignees: ''
 **Target publish date:** <yyyy-mm-dd>
 - [ ] Check this box if this is a hard deadline.
 
-- [ ] Check this box if you'd like your reviewer to fix grammar and punctuation issues for you.
-
 **Process**
 
 Check out the [web.dev writing process](https://web.dev/handbook/quick-start/).
@@ -26,8 +24,7 @@ will assign this ticket to themselves and work as your reviewer to help you
 complete the remaining steps.
 
 - [ ] 1. I've done my proposal <add a link to your proposal doc>
-- [ ] 2. Proposal approved — _reviewer checks this_
-- [ ] 3. I've added a draft to my proposal doc
-- [ ] 4. Draft approved — _reviewer checks this_
-- [ ] 5. I've submitted a pull request #<add PR number>
-- [ ] 6. Pull request approved — _reviewer checks this_
+- [ ] 2. I've added a draft to my proposal doc
+- [ ] 3. Draft approved — _reviewer checks this_
+- [ ] 4. I've submitted a pull request #<add PR number>
+- [ ] 5. Pull request approved — _reviewer checks this_
