@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/llighter/yunha-ind#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^0.8.3",
+    "@11ty/eleventy": "^0.11.0",
     "@11ty/eleventy-plugin-rss": "^1.0.6",
     "@11ty/eleventy-plugin-syntaxhighlight": "^2.0.1",
     "autoprefixer": "^9.7.2",
@@ -54,7 +54,7 @@
     "markdown-it-anchor": "^5.2.4",
     "markdown-it-attrs": "^3.0.0",
     "mkdirp": "^0.5.1",
-    "node-sass": "^4.9.4",
+    "node-sass": "^4.14.1",
     "npm-run-all": "^4.1.5",
     "postcss": "^7.0.23",
     "postcss-loader": "^3.0.0",
