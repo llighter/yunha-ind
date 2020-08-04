@@ -28,7 +28,7 @@ description: My latest news, updates, and stories for developers
 
 <div class="w-grid w-pb--std">
   <div class="w-grid__columns w-grid__columns--gapless w-grid__columns--three" role="list">
-    {%- for post in collections.post -%}
+    {%- for post in collections.blogPosts -%}
       {% PostCard {post: post} %}
     {%- endfor -%}
   </div>

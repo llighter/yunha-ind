@@ -16,11 +16,7 @@
 
 const livePosts = require('../_filters/live-posts');
 
-// Return the three most recent blog posts.
 module.exports = (collection) => {
-  return collection
-    .getFilteredByTag('blog')
-    .filter(livePosts)
-    .reverse()
-    .slice(0, 3);
-};
+    const tag = 'blog';
+    return collection.getFilteredByTag(tag).filter(livePosts).reverse();
+}

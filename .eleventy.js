@@ -26,7 +26,8 @@ const {Image, Figure} = require(`./${tagsDir}/Image`);
 
 const collectionsDir = 'src/site/_collections';
 const recentTips = require(`./${collectionsDir}/recent-tips`);
-const recentPosts = require(`./${collectionsDir}/recent-posts`);
+const recentBlogPosts = require(`./${collectionsDir}/recent-posts`);
+const blogPostsDescending = require(`./${collectionsDir}/blog-posts-descending`);
 
 const filtersDir = 'src/site/_filters';
 const md = require(`./${filtersDir}/md`);
@@ -107,7 +108,8 @@ module.exports = function(eleventyConfig) {
   // COLLECTIONS
   //----------------------------------------------------------------------------
   eleventyConfig.addCollection('recentTips', recentTips);
-  eleventyConfig.addCollection('recentPosts', recentPosts);
+  eleventyConfig.addCollection('blogPosts', blogPostsDescending);
+  eleventyConfig.addCollection('recentBlogPosts', recentBlogPosts);
   // Turn collection.all into a lookup table so we can use findBySlug
   // to quickly find collection items without looping
   eleventyConfig.addCollection('memoized', function(collection) {
