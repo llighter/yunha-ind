@@ -10,7 +10,7 @@ alt: keynote
 description: |
    키노트로 디자인한 로고를 SVG 형태로 변환하여 홈페이지에 등로하는 방법에 대해 알아보자.
 tags:
-  - post
+  - blog
   - keynote
   - logo
   - svg

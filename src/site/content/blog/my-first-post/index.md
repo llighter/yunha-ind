@@ -11,7 +11,7 @@ alt: First Step for my website
 description: |
   My first blog post using 11ty and Material Design Component.
 tags:
-  - post
+  - blog
 ---
 
 ## this is phasse

@@ -11,7 +11,7 @@ alt: VS Code Snippet
 description: |
   VS Code 에디터의 기본 기능중 코드조각 만들기를 활용하여 반복되는 작업을 줄이는 매크로를 만든다.
 tags:
-  - post
+  - blog
 ---
 
 {% YouTube 'zEks4QvLRjs' %}

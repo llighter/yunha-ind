@@ -10,7 +10,7 @@ alt: My way
 description: |
   다른 사람이 먼저 갈 수 있다. 하지만 그 발자취를 똑같이 따라한다면 내가 아니라도 누구라도 갈 수 있다.
 tags:
-  - post
+  - blog
   - diary
 ---
 

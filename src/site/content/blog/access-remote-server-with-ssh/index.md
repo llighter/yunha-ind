@@ -11,7 +11,7 @@ alt: access remote server with ssh
 description: |
   클라우드 서버에 원격접속하고 싶은 사람들에게 간단한 설정으로 편하게 접속할 수 있는 방법을 알려준다.
 tags:
-  - post
+  - blog
   - ssh
   - aws
   - server

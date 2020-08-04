@@ -10,7 +10,7 @@ alt: VS Code Command Shell
 description: |
   VS Code를 터미널에서 바로 실행하는 방법에 대해 알아본다.
 tags:
-  - post
+  - blog
   - vscode
   - terminal
 ---

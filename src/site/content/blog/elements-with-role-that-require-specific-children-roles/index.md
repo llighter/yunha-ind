@@ -12,7 +12,7 @@ alt: ARIA for screen reader
 description: |
     Learn how to improve your web page's accessibility for assistive technology users by making sure that all elements with ARIA roles have the required child elements.
 tags:
-- post
+- blog
 - ARIA
 - lighthouse
 - accessibility
