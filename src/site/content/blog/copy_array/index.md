@@ -12,7 +12,7 @@ alt: hero
 description: |
   How to use array API to copying array
 tags:
-  - post
+  - blog
   - copy-array
 ---
 

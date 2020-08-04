@@ -11,7 +11,7 @@ alt: Bind method
 description: |
   why we need to bind event handlers in Class Components(Custom element)
 tags:
-  - post
+  - blog
   - javascript
   - Custom element
 ---
