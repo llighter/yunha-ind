@@ -41,27 +41,6 @@ hero_position: center
 
 alt: java
 
-# You can provide a custom thumbnail and description for social media cards.
-# Thumbnail images should be 896 x 480.
-# If no social thumbnail is provided then the post will attempt to fallback to
-# the post's thumbnail or hero from above. It will also reuse the alt.
-# social:
-#   google:
-#     title: A title for Google search card.
-#     description: A description for Google search card.
-#     thumbnail: google_thumbnail.jpg
-#     alt: Provide an alt for your thumbnail.
-#   facebook:
-#     title: A title for Facebook card.
-#     description: A description for Facebook card.
-#     thumbnail: facebook_thumbnail.jpg
-#     alt: Provide an alt for your thumbnail.
-#   twitter:
-#     title: A title for Twitter card.
-#     description: A description for Twitter card.
-#     thumbnail: twitter_thumbnail.jpg
-#     alt: Provide an alt for your thumbnail.
-
 tags:
   - tip # blog is a required tag for the article to show up in the blog.
   - java

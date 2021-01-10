@@ -1,6 +1,7 @@
 const { DateTime } = require("luxon");
 const fs = require("fs");
 
+const chalk = require('chalk');
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
@@ -34,9 +35,11 @@ const md = require(`./${filtersDir}/md`);
 const prettyDate = require(`./${filtersDir}/pretty-date`);
 const githubLink = require(`./${filtersDir}/github-link`);
 const stripLanguage = require(`./${filtersDir}/strip-language`);
+const htmlDateString = require(`./${filtersDir}/html-date-string`);
 const {memoize, findBySlug} = require(`./${filtersDir}/find-by-slug`);
 
 module.exports = function(eleventyConfig) {
+  console.log(chalk.black.bgGreen('Eleventy is building, please wait…'));
 
   //----------------------------------------------------------------------------
   // PLUGINS
@@ -124,19 +127,20 @@ module.exports = function(eleventyConfig) {
   // Copy the src/images directort
   // eleventyConfig.addPassthroughCopy("src/images");
 
-  // eleventyConfig.setBrowserSyncConfig({
-  //   callbacks: {
-  //     ready: function(err, browserSync) {
-  //       const content_404 = fs.readFileSync('_site/404.html');
+  eleventyConfig.setBrowserSyncConfig({
+    callbacks: {
+      ready: function(err, browserSync) {
+        
+        const content_404 = fs.readFileSync('docs/404/index.html');
 
-  //       browserSync.addMiddleware("*", (req, res) => {
-  //         // Provides the 404 content without redirect.
-  //         res.write(content_404);
-  //         res.end();
-  //       });
-  //     }
-  //   }
-  // });
+        browserSync.addMiddleware("*", (req, res) => {
+          // Provides the 404 content without redirect.
+          res.write(content_404);
+          res.end();
+        });
+      }
+    }
+  });
 
   //----------------------------------------------------------------------------
   // FILTERS
@@ -145,14 +149,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter('prettyDate', prettyDate);
   eleventyConfig.addFilter('findBySlug', findBySlug);
   eleventyConfig.addFilter('stripLanguage', stripLanguage);
-  eleventyConfig.addFilter("readableDate", dateObj => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
-  });
-
+  eleventyConfig.addFilter("readableDate", htmlDateString); // TODO: 쓰는건지 안쓰는 건지 확인
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-  eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
-  });
+  eleventyConfig.addFilter('htmlDateString', htmlDateString);
 
   // Get the first `n` elements of a collection.
   eleventyConfig.addFilter("head", (array, n) => {
@@ -183,6 +182,12 @@ module.exports = function(eleventyConfig) {
   //----------------------------------------------------------------------------
   eleventyConfig.addNunjucksTag('Image', Image);
   eleventyConfig.addNunjucksTag('Figure', Figure);
+
+  // ----------------------------------------------------------------------------
+  // ELEVENTY OPTIONS
+  // ----------------------------------------------------------------------------
+  // https://www.11ty.io/docs/config/#data-deep-merge
+  eleventyConfig.setDataDeepMerge(true);
 
   return {
     templateFormats: [
