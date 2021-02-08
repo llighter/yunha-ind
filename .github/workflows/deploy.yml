@@ -22,19 +22,19 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout 🛎️
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       # Node 환경 세팅
       - name: Setup Node.js environment
-      - uses: actions/setup-node@v2.1.4
+        uses: actions/setup-node@v2.1.4
         with:
           # Version Spec of the version to use.  Examples: 12.x, 10.15.1, >=10.15.0
           node-version: 14.15.4
       
       - name: Install and Build 🔧
-      - run: npm install -g @11ty/eleventy
-      - run: npm install
-      - run: npm run deploy      
+        run: npm install -g @11ty/eleventy
+        run: npm install
+        run: npm run deploy      
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
