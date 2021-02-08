@@ -75,10 +75,10 @@ function compileCSS(input, output) {
         compiledResult.css.toString(),
         postcssOptions,
     );
+    
     postcssResult.warnings().forEach((warn) => {
         console.warn(warn.toString());
     });
-
     return postcssResult;
 }
 
@@ -86,5 +86,5 @@ const target = process.argv[3] || "out.css";
 const out = compileCSS(process.argv[2], target);
 
 fs.writeFileSync(target, out.css);
-fs.writeFileSync(target + ".map", out.map);
+fs.writeFileSync(target + ".map", out.map.toString());
 log("Finished CSS!");
