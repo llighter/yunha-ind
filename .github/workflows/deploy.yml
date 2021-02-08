@@ -31,9 +31,11 @@ jobs:
           # Version Spec of the version to use.  Examples: 12.x, 10.15.1, >=10.15.0
           node-version: 14.15.4
       
-      - name: Install and Build 🔧
+      - name: Install 🔧
         run: npm install -g @11ty/eleventy
         run: npm install
+     
+      - name: Build & Deploy 🎉
         run: npm run deploy      
 
       - name: Deploy 🚀
