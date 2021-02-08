@@ -1,5 +1,5 @@
 # YUNHA INDUSTY 
-![Build Status](https://github.com/llighter/yunha-ind/workflows/deploy/badge.svg)
+![Continuous integration](https://github.com/llighter/yunha-ind/workflows/deploy/badge.svg)
 
 A starter repository showing how to build a blog with the [Eleventy](https://github.com/11ty/eleventy) static site generator.
 
