@@ -33,7 +33,7 @@ jobs:
       
       - name: Install 🔧
         run: npm install -g @11ty/eleventy
-        run: npm install
+      - run: npm install
      
       - name: Build & Deploy 🎉
         run: npm run deploy      
