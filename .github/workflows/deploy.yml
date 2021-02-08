@@ -49,5 +49,5 @@ jobs:
           FOLDER: docs/
           GIT_CONFIG_NAME: llighter
           # Allows you to customize the email that is attached to the GitHub config which is used when pushing the deployment commits. If this is not included it will use the email in the GitHub context, followed by a generic noreply GitHub email.
-          GIT_CONFIG_EMAIL: hadbsgkgmail.com
+          GIT_CONFIG_EMAIL: hadbsgk@gmail.com
           REPOSITORY_NAME: llighter/llighter.github.io
