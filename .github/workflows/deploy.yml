@@ -1,0 +1,51 @@
+# 배포 액션
+name: Deploy
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Checkout 🛎️
+      - uses: actions/checkout@v2
+
+      # Node 환경 세팅
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.4
+        with:
+          # Version Spec of the version to use.  Examples: 12.x, 10.15.1, >=10.15.0
+          node-version: 14.15.4
+      
+      - name: Install and Build 🔧
+      - run: npm install -g @11ty/eleventy
+      - run: npm install
+      - run: npm run deploy      
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          # In order for GitHub to trigger the rebuild of your page you must provide the action with the repositories provided GitHub token.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # This is the branch you wish to deploy to, for example gh-pages or docs.
+          BRANCH: master
+          # The folder in your repository that you want to deploy. If your build script compiles into a directory named build you would put it here. Folder paths cannot have a leading / or ./. If you wish to deploy the root directory you can place a . here.
+          FOLDER: docs/
+          GIT_CONFIG_NAME: llighter
+          # Allows you to customize the email that is attached to the GitHub config which is used when pushing the deployment commits. If this is not included it will use the email in the GitHub context, followed by a generic noreply GitHub email.
+          GIT_CONFIG_EMAIL: hadbsgkgmail.com
+          REPOSITORY_NAME: llighter/llighter.github.io
